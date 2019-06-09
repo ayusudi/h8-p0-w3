@@ -1,21 +1,21 @@
-//Diberikan sebuah function groupAnimals(arr) 
-//yang menerima satu parameter berupa array yang berisi string. 
-//Function akan me-return array multidimensi dimana array tersebut berisikan kategori/kelompok
-//array yang dikumpulkan sesuai dengan abjad depannya. 
-//Abjad harus berurut dari a-z (jika ada). Untuk kasus ini, anggap saja semua text lowercase.
+/*Diberikan sebuah function groupAnimals(arr) 
+yang menerima satu parameter berupa array yang berisi string. 
+Function akan me-return array multidimensi dimana array tersebut berisikan kategori/kelompok
+array yang dikumpulkan sesuai dengan abjad depannya. 
+Abjad harus berurut dari a-z (jika ada). Untuk kasus ini, anggap saja semua text lowercase.
 
-//Contoh jika animals adalah ["ayam", "kucing", "bebek", "bangau", "zebra"]
+Contoh jika animals adalah ["ayam", "kucing", "bebek", "bangau", "zebra"]
 
-//maka akan menampilkan output: [ [ "ayam" ], [ "bebek", "bangau" ], [ "kucing ], [ "zebra" ] ]
+maka akan menampilkan output: [ [ "ayam" ], [ "bebek", "bangau" ], [ "kucing ], [ "zebra" ] ]
 
-//Urutan hewan dalam array setiap pengelompokan huruf tidak penting.
+Urutan hewan dalam array setiap pengelompokan huruf tidak penting.*/
 
 console.log('CARA I')
 function groupAnimals(hewan) {
-  var a = []
-  var c = []
-  var k = []
-  var u = []
+  var a = [];
+  var c = [];
+  var k = [];
+  var u = [];
   var urut =[];
   for (var i =0; i<hewan.length; i++){
     if (hewan[i][0]== 'a'){
@@ -50,3 +50,31 @@ function groupAnimals(hewan) {
   // [ ['ayam', 'anoa'], ['cacing'], ['kuda', 'kancil'] ]
   console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil', 'unta', 'cicak' ]));
   // [ ['ayam', 'anoa'], ['cacing', 'cicak'], ['kuda', 'kancil'], ['unta'] ]
+
+  console.log('\n CARA II')
+  function groupAnimals2(animals){
+    animals.sort();
+    var sortAnimals =[];
+    var checkWord = [];
+    var firstWord = animals[0][0];
+  for (var j= 0; j< animals.length; j++){
+    if (animals[j][0]===firstWord){
+      checkWord.push(animals[j])
+    }
+    else {
+      sortAnimals.push(checkWord);
+      checkWord= [];
+      firstWord= animals[j][0];
+      checkWord.push(animals[j])
+    }
+  }
+  if (j===animals.length){
+    sortAnimals.push(checkWord)
+  }
+  return sortAnimals
+  }
+  
+  console.log(groupAnimals2(['cacing', 'ayam', 'kuda', 'anoa', 'kancil']));
+    // [ ['ayam', 'anoa'], ['cacing'], ['kuda', 'kancil'] ]
+    console.log(groupAnimals2(['cacing', 'ayam', 'kuda', 'anoa', 'kancil', 'unta', 'cicak' ]));
+    // [ ['ayam', 'anoa'], ['cacing', 'cicak'], ['kuda', 'kancil'], ['unta'] ]
