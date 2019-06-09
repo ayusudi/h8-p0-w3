@@ -14,7 +14,7 @@ console.log('\n==========\n1. Input Baru')
     //console.log(bulan) // ["21", "05", "1989"]
     //console.log(bulanHuruf) // 05
 
-console.log('\n==========\n2. Ubah Jadi Bulan(bulanHuruf)')
+console.log('\n==========\n2. Ubah 5 jadi May)
     // jadiin 05 -> May
     switch (bulanHuruf) {
         case 1: bulanHuruf = "January"; break;
