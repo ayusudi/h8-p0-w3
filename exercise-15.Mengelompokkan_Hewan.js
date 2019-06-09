@@ -10,7 +10,7 @@ maka akan menampilkan output: [ [ "ayam" ], [ "bebek", "bangau" ], [ "kucing ], 
 
 Urutan hewan dalam array setiap pengelompokan huruf tidak penting.*/
 
-console.log('CARA I')
+console.log('CARA I');
 function groupAnimals(hewan) {
   var a = [];
   var c = [];
@@ -19,31 +19,31 @@ function groupAnimals(hewan) {
   var urut =[];
   for (var i =0; i<hewan.length; i++){
     if (hewan[i][0]== 'a'){
-      a.push(hewan[i])
+      a.push(hewan[i]);
     }
     if (hewan[i][0]== 'c'){
-      c.push(hewan[i])
+      c.push(hewan[i]);
     }
     if (hewan[i][0]== 'k'){
-      k.push(hewan[i])
+      k.push(hewan[i]);
     }
     if (hewan[i][0]== 'u'){
-      u.push(hewan[i])
+      u.push(hewan[i]);
     }
   }
   if (a.length> 0){
-    urut.push (a)
+    urut.push (a);
   }
   if (c.length> 0){
-    urut.push (c)
+    urut.push (c);
   }
   if (k.length> 0){
-    urut.push (k)
+    urut.push (k);
   }
   if (u.length> 0){
-    urut.push (u)
+    urut.push (u);
   }
-  return urut
+  return urut;
   }
   
   console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil']));
@@ -51,7 +51,7 @@ function groupAnimals(hewan) {
   console.log(groupAnimals(['cacing', 'ayam', 'kuda', 'anoa', 'kancil', 'unta', 'cicak' ]));
   // [ ['ayam', 'anoa'], ['cacing', 'cicak'], ['kuda', 'kancil'], ['unta'] ]
 
-  console.log('\n CARA II')
+  console.log('\n CARA II');
   function groupAnimals2(animals){
     animals.sort();
     var sortAnimals =[];
@@ -59,19 +59,19 @@ function groupAnimals(hewan) {
     var firstWord = animals[0][0];
   for (var j= 0; j< animals.length; j++){
     if (animals[j][0]===firstWord){
-      checkWord.push(animals[j])
+      checkWord.push(animals[j]);
     }
     else {
       sortAnimals.push(checkWord);
       checkWord= [];
       firstWord= animals[j][0];
-      checkWord.push(animals[j])
+      checkWord.push(animals[j]);
     }
   }
   if (j===animals.length){
-    sortAnimals.push(checkWord)
+    sortAnimals.push(checkWord);
   }
-  return sortAnimals
+  return sortAnimals;
   }
   
   console.log(groupAnimals2(['cacing', 'ayam', 'kuda', 'anoa', 'kancil']));
