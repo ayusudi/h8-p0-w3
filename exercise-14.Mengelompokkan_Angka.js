@@ -9,17 +9,17 @@ Contoh jika arr inputan adalah [45, 20, 21, 2, 7] maka output: [ [ 20, 2 ], [ 7 
 */
 
 function mengelompokkanAngka(arr) {
-  var newArr = []
+  var newArr = [];
   for (var jumArray = 0; jumArray<3; jumArray++){
-    newArr.push([])
+    newArr.push([]);
   }
   for (var i = 0; i < arr.length; i++) {
       if (arr[i] % 2 === 0 && arr[i] % 3 !== 0) {
-          newArr[0].push(arr[i])
+          newArr[0].push(arr[i]);
       } else if (arr[i] % 2 !== 0 && arr[i] % 3 !== 0) {
-          newArr[1].push(arr[i])
+          newArr[1].push(arr[i]);
       } else if (arr[i] % 3 === 0) {
-          newArr[2].push(arr[i])
+          newArr[2].push(arr[i]);
       }
   }
   return newArr;
