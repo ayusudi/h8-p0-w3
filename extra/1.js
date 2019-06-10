@@ -27,44 +27,57 @@
 */
 
 function firstArrived(cars) {
-  var urut =[];
-  var kuning =[];
-  var merah =[];
-  var hitam =[];
-  for (var i= 0; i<cars.length; i++){
-    if(cars[i][1]=='kuning'){
-      kuning.push(cars[i][0])
+  var urut = [];
+  var kuning = [];
+  var merah = [];
+  var hitam = [];
+  for (var i = 0; i < cars.length; i++) {
+    if (cars[i][1] == "kuning") {
+      kuning.push(cars[i][0]);
     }
-    if (cars[i][1]=='merah'){
-      merah.push(cars[i][0])
+    if (cars[i][1] == "merah") {
+      merah.push(cars[i][0]);
     }
-    if (cars[i][1]=='hitam'){
-      hitam.push(cars[i][0]) 
-     }
-    
+    if (cars[i][1] == "hitam") {
+      hitam.push(cars[i][0]);
+    }
   }
 
   for (var i = 0; i < kuning.length; i++) {
-    urut.push(kuning[i])
-  }
-  
-  for (var i = 0; i < merah.length; i++) {
-    urut.push(merah[i])
-  }
-  for (var i = 0; i < hitam.length; i++) {
-    urut.push(hitam[i])
+    urut.push(kuning[i]);
   }
 
-  return urut
-}; 
+  for (var i = 0; i < merah.length; i++) {
+    urut.push(merah[i]);
+  }
+  for (var i = 0; i < hitam.length; i++) {
+    urut.push(hitam[i]);
+  }
+
+  return urut;
+}
 
 //TEST CASE
 
-console.log(firstArrived([['B 1171 BA', 'merah'], ['B 1172 BA', 'kuning'], ['B 1173 BA', 'hitam'], ['B 1174 BA', 'hitam']]));
+console.log(
+  firstArrived([
+    ["B 1171 BA", "merah"],
+    ["B 1172 BA", "kuning"],
+    ["B 1173 BA", "hitam"],
+    ["B 1174 BA", "hitam"]
+  ])
+);
 /*
   [ 'B 1172 BA', 'B 1171 BA', 'B 1173 BA', 'B 1174 BA' ]
 */
-//console.log(firstArrived([['B 1174 BA', 'hitam'], ['B 1171 BA', 'merah'], ['B 1173 BA', 'hitam'], ['B 1172 BA', 'kuning']]));
+console.log(
+  firstArrived([
+    ["B 1174 BA", "hitam"],
+    ["B 1171 BA", "merah"],
+    ["B 1173 BA", "hitam"],
+    ["B 1172 BA", "kuning"]
+  ])
+);
 /*
   [ 'B 1172 BA', 'B 1171 BA', 'B 1174 BA', 'B 1173 BA' ]
 */
