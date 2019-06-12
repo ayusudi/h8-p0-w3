@@ -1,47 +1,36 @@
-/* Revisi :
-1. Hilangkan console.log
-*/
+/* coba jangan hard code 
+
+hitungWaktu = ( totalKM - cars[i][2] )/ cars[i][1]
+sort winner dari hasil hitungWaktu*/
 
 function winner(cars, totalKM) {
-  var urut = [];
-  var waktu = [];
-  var jarakSisa = [];
-  var carKe0 = [];
-  var carKe1 = [];
-  var carKe2 = [];
-  var carKe3 = [];
-  for (var i = 0; i < cars.length; i++) {
-    if (totalKM - cars[i][2] >= 0) {
-      jarakSisa.push(totalKM - cars[i][2]);
-      waktu.push([cars[i][0], jarakSisa[i] / cars[i][1]]);
-    }
-    if (waktu[i][1] < 1) {
-      carKe0.push(waktu[i][0]);
-    }
-    if (waktu[i][1] == 2.25) {
-      carKe1.push(waktu[i][0]);
-    }
-    if (waktu[i][1] >= 2.34 && waktu[i][1] < 2.5) {
-      carKe2.push(waktu[i][0]);
-    }
-    if (waktu[i][1] == 2.5) {
-      carKe3.push(waktu[i][0]);
-    }
+  var urutMobil = [];
+  var arr = [];
+  var hitungWaktu = [];
+
+  for (let i = 0; i < cars.length; i++) {
+    hitungWaktu = (totalKM - cars[i][2]) / cars[i][1];
+    arr.push([cars[i][0], hitungWaktu]);
   }
-  for (var i = 0; i < carKe0.length; i++) {
-    urut.push(carKe0[i]);
-  }
-  for (var i = 0; i < carKe1.length; i++) {
-    urut.push(carKe1[i]);
-  }
-  for (var i = 0; i < carKe2.length; i++) {
-    urut.push(carKe2[i]);
-  }
-  for (var i = 0; i < carKe3.length; i++) {
-    urut.push(carKe3[i]);
+  for (let i = arr.length - 1; i >= 0; i--) {
+    for (let j = i; j >= 0; j--) {
+      if (arr[i][1] < arr[j][1]) {
+        var temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
   }
 
-  return urut;
+  // Array dalam array diubah jadi 1 array aja
+  temp = [];
+  for (let i = 0; i < arr.length; i++) {
+    temp.push(arr[i][0]);
+  }
+  arr = "";
+  arr = temp;
+
+  return arr;
 }
 
 console.log(
@@ -56,5 +45,5 @@ console.log(
   )
 );
 /*
-  [ 'B 1174 BA', 'B 1172 BA', 'B 1173 BA', 'B 1171 BA' ]
-*/
+    [ 'B 1174 BA', 'B 1172 BA', 'B 1173 BA', 'B 1171 BA' ]
+  */
